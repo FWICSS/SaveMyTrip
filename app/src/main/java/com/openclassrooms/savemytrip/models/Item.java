@@ -76,9 +76,7 @@ public class Item {
         isSelected = selected;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
+    public void setUserId(long userId) { this.userId = userId; }
 
     // --- UTILS ---
 
