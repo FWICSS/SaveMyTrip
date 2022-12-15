@@ -1,10 +1,10 @@
 name: Android CI
 
 on:
-  push:
-    branches: [ "feature/test" ]
   pull_request:
-    branches: [ "feature/test" ]
+    branches:
+      - master
+      - starter
 
 jobs:
   build:
@@ -24,3 +24,18 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+
+		- name: Android Emulator Runner
+		  # You may pin to the exact commit or the version.
+		  # uses: ReactiveCircus/android-emulator-runner@2b2ebf2e518e38a17180117fc2b677006db27330
+      uses: ReactiveCircus/android-emulator-runner@v2.27.0
+      with:
+        api-level: 23
+        target: default
+        arch: x86
+        profile: Nexus 6
+        script: ./gradlew connectedCheck --stacktrace
+
+    # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
+    # the publishing section of your build.gradle
+    - name: Publish to GitHub Packages
