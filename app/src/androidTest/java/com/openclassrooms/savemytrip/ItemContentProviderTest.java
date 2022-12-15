@@ -48,7 +48,16 @@ public class ItemContentProviderTest {
         cursor.close();
 
     }
+    private ContentValues generateItem() {
 
+        final ContentValues values = new ContentValues();
+        values.put("text", "Visite cet endroit de rêve !");
+        values.put("category", "0");
+        values.put("isSelected", "false");
+        values.put("userId", "1");
+        return values;
+
+    }
     @Test
 
     public void insertAndGetItem() {
@@ -69,15 +78,6 @@ public class ItemContentProviderTest {
 
     // ---
 
-    private ContentValues generateItem() {
 
-        final ContentValues values = new ContentValues();
-        values.put("text", "Visite cet endroit de rêve !");
-        values.put("category", "0");
-        values.put("isSelected", "false");
-        values.put("userId", "1");
-        return values;
-
-    }
 
 }
