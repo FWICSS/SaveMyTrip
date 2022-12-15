@@ -25,10 +25,10 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Android Emulator Runner
+    - name: run test
      # You may pin to the exact commit or the version.
      # uses: ReactiveCircus/android-emulator-runner@2b2ebf2e518e38a17180117fc2b677006db27330
-      uses: ReactiveCircus/android-emulator-runner@v2.27.0
+      uses: reactiveCircus/android-emulator-runner@2
       with: 
         api-level: 23
         target: default
